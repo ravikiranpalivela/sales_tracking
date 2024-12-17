@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.tekskills.st_tekskills",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 240719016,
+      "versionName": "1.0.0",
+      "outputFile": "ST_TEKSKILLS-release-v.240719016.apk"
+    }
+  ],
+  "elementType": "File"
+}

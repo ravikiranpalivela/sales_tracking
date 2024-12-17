@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/widget_size_8"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true"
+                    android:progress="100"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="@dimen/widget_size_10"
+                    android:progressDrawable="@drawable/my_progress_bar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/widget_size_4"
+                    android:layout_margin="@dimen/widget_size_4"
+                    android:background="@drawable/white_border_with_radius"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/progress">
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginTop="20dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:background="@drawable/white_border_with_radius"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:padding="@dimen/_10dp">-->
+
+                        <EditText
+                            android:id="@+id/edt_visit_purpose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_color_changer"
+                            android:hint="@string/edt_visit_purpose"
+                            android:maxLines="5"
+                            android:minLines="3"
+                            android:padding="@dimen/widget_size_4"
+                            android:inputType="textMultiLine"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="@dimen/font_size_18" />
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:orientation="horizontal"-->
+<!--                            android:weightSum="1">-->
+
+
+                            <EditText
+                                android:id="@+id/edt_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_weight="0.5"
+                                android:background="@drawable/edit_text_color_changer"
+                                android:focusable="false"
+                                android:hint="@string/visit_date"
+                                android:padding="@dimen/widget_size_4"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/font_size_18" />
+
+<!--                            <EditText-->
+<!--                                android:id="@+id/edt_time"-->
+<!--                                style="@style/stlEdittextHorizontal"-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_weight="0.5"-->
+<!--                                android:backgroundTint="@android:color/white"-->
+<!--                                android:focusable="false"-->
+<!--                                android:hint="@string/time"-->
+<!--                                android:visibility="gone" />-->
+
+<!--                        </LinearLayout>-->
+
+                        <LinearLayout
+                            android:id="@+id/ll_client_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <com.tekskills.st_tekskills.presentation.view.spinner.SearchableSpinner
+                                android:id="@+id/s_clients"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/spinner_item_height"
+                                android:layout_weight="3"
+                                android:background="@drawable/edit_text_color_changer"
+                                android:padding="@dimen/widget_size_8"
+                                app:label_alignment="1"
+                                app:label_color="@color/colorPrimary"
+                                app:label_hint="Select Client"
+                                app:label_text_size="@dimen/font_size_16"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_allotted_expenses"
+                                app:selected_item_color="@color/colorPrimary"
+                                app:showSearch="true"
+                                app:sort="true" />
+
+                            <ImageButton
+                                android:id="@+id/iv_add_new_client"
+                                android:layout_width="@dimen/widget_size_36"
+                                android:layout_height="@dimen/widget_size_36"
+                                android:layout_gravity="center"
+                                android:layout_margin="@dimen/widget_size_2"
+                                android:layout_weight="1"
+                                android:background="@drawable/ic_baseline_add_24"
+                                android:backgroundTint="@color/black"
+                                android:contentDescription="@string/add_new_client"
+                                android:visibility="visible" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_adding_new_client"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/widget_size_2"
+                            android:orientation="vertical"
+                            android:padding="@dimen/widget_size_2">
+
+                            <LinearLayout
+                                android:id="@+id/ll_add_client"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/background_title"
+                                android:orientation="horizontal"
+                                android:visibility="gone"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/tv_purpose_visit_details"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_margin="@dimen/widget_size_2"
+                                    android:layout_weight="2"
+                                    android:padding="@dimen/widget_size_2"
+                                    android:text="@string/adding_new_client"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/font_size_18"
+                                    android:textStyle="bold" />
+
+                                <ImageButton
+                                    android:id="@+id/iv_close_add_client"
+                                    android:layout_width="@dimen/widget_size_36"
+                                    android:layout_height="@dimen/widget_size_36"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="@dimen/_4dp"
+                                    android:background="@drawable/ic_delete"
+                                    android:backgroundTint="@color/white"
+                                    android:visibility="visible" />
+
+                            </LinearLayout>
+
+                            <EditText
+                                android:id="@+id/edt_client_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/edit_text_color_changer"
+                                android:hint="@string/client_name"
+                                android:inputType="text"
+                                android:padding="@dimen/widget_size_4"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/font_size_18"
+                                android:visibility="gone" />
+
+
+                            <EditText
+                                android:id="@+id/edt_no_of_days"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/edit_text_color_changer"
+                                android:hint="@string/edt_no_of_days"
+                                android:inputType="number"
+                                android:padding="@dimen/widget_size_4"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray"
+                                android:textSize="@dimen/font_size_18"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_contact_details"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <com.tekskills.st_tekskills.presentation.view.spinner.SearchableSpinner
+                                    android:id="@+id/s_leads"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/spinner_item_height"
+                                    android:layout_weight="3"
+                                    android:background="@drawable/edit_text_color_changer"
+                                    android:padding="@dimen/widget_size_8"
+                                    app:label_alignment="1"
+                                    app:label_color="@color/colorPrimary"
+                                    app:label_hint="Select Contact Person"
+                                    app:label_text_size="@dimen/font_size_16"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/ll_allotted_expenses"
+                                    app:selected_item_color="@color/colorPrimary"
+                                    app:showSearch="true"
+                                    app:sort="true" />
+
+                                <ImageButton
+                                    android:id="@+id/iv_add_new_contact_person"
+                                    android:layout_width="@dimen/widget_size_36"
+                                    android:layout_height="@dimen/widget_size_36"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="@dimen/widget_size_2"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ic_baseline_add_24"
+                                    android:backgroundTint="@color/black"
+                                    android:visibility="visible" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_add_contact_details"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone"
+                                android:weightSum="3"
+                                tools:visibility="visible">
+
+                                <EditText
+                                    android:id="@+id/edt_contactName"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/edit_text_color_changer"
+                                    android:hint="@string/customer_name"
+                                    android:inputType="text"
+                                    android:padding="@dimen/widget_size_4"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/gray"
+                                    android:textSize="@dimen/font_size_18" />
+
+                                <EditText
+                                    android:id="@+id/edt_contactNo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/edit_text_color_changer"
+                                    android:hint="@string/customer_contact"
+                                    android:inputType="phone"
+                                    android:autofillHints="phone"
+                                    android:padding="@dimen/widget_size_4"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/gray"
+                                    android:textSize="@dimen/font_size_18" />
+
+                                <EditText
+                                    android:id="@+id/edt_email_id"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/edit_text_color_changer"
+                                    android:hint="@string/customer_email"
+                                    android:inputType="textEmailAddress"
+                                    android:padding="@dimen/widget_size_4"
+                                    android:autofillHints="emailAddress"
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/gray"
+                                    android:textSize="@dimen/font_size_18" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/edt_opportunity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_color_changer"
+                            android:hint="@string/opportunity"
+                            android:maxLines="5"
+                            android:minLines="3"
+                            android:padding="@dimen/widget_size_4"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/gray"
+                            android:textSize="18sp" />
+
+                        <com.tekskills.st_tekskills.presentation.view.spinner.SearchableSpinner
+                            android:id="@+id/s_mode_of_travel"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spinner_item_height"
+                            android:background="@drawable/edit_text_color_changer"
+                            android:padding="@dimen/_10dp"
+                            app:label_alignment="1"
+                            app:label_color="@color/colorPrimary"
+                            app:label_hint="Mode Of Travel"
+                            app:label_text_size="@dimen/font_size_16"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ll_allotted_expenses"
+                            app:selected_item_color="@color/colorPrimary"
+                            app:showSearch="true"
+                            app:sort="true" />
+
+                        <!--                            <EditText-->
+                        <!--                                android:id="@+id/edt_recepient"-->
+                        <!--                                style="@style/stlEdittext"-->
+                        <!--                                android:hint="@string/select_recipient"-->
+                        <!--                                android:layout_marginTop="5dp"-->
+                        <!--                                android:backgroundTint="@android:color/white"/>-->
+
+                        <!--                            <EditText-->
+                        <!--                                android:id="@+id/edt_company_name"-->
+                        <!--                                style="@style/stlEdittext"-->
+                        <!--                                android:hint="@string/company_name"-->
+                        <!--                                android:backgroundTint="@android:color/white"/>-->
+
+
+                        <LinearLayout
+                            android:id="@+id/location_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/widget_size_40"
+                            android:layout_margin="@dimen/widget_size_2"
+                            android:background="@drawable/white_border"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <ImageView
+                                android:id="@+id/addSourceLocation_map"
+                                android:layout_width="@dimen/widget_size_36"
+                                android:layout_height="@dimen/widget_size_36"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_location_blue" />
+
+                            <fragment
+                                android:id="@+id/source_maps_place_autocomplete_fragment"
+                                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:background="@drawable/rounded_edit_text"
+                                android:layout_margin="@dimen/widget_size_1"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/addSourceLocation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/widget_size_4"
+                                android:gravity="start|center_vertical"
+                                android:hint="@string/add_source_location"
+                                android:padding="@dimen/widget_size_4"
+                                android:singleLine="true"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textCursorDrawable="@null"
+                                android:textSize="@dimen/font_size_18" />
+<!--                            <TextView-->
+<!--                                android:id="@+id/addSourceLocation"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_alignParentRight="true"-->
+<!--                                android:layout_gravity="right"-->
+<!--                                android:layout_weight="2"-->
+<!--                                android:background="@null"-->
+<!--                                android:hint="Add Source location"-->
+<!--                                android:inputType="textPostalAddress"-->
+<!--                                android:maxLines="2"-->
+<!--                                android:padding="8dp"-->
+<!--                                android:textColorHint="#bebebe"-->
+<!--                                android:textSize="16dp"-->
+<!--                                android:textStyle="italic"-->
+<!--                                android:visibility="gone" />-->
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/destination_location_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/widget_size_40"
+                            android:layout_margin="@dimen/widget_size_2"
+                            android:background="@drawable/white_border"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <ImageView
+                                android:id="@+id/addDestinationLocation_map"
+                                android:layout_width="@dimen/widget_size_36"
+                                android:layout_height="@dimen/widget_size_36"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_location_red" />
+
+                            <fragment
+                                android:id="@+id/destination_maps_place_autocomplete_fragment"
+                                android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:background="@drawable/rounded_edit_text"
+                                android:layout_margin="@dimen/widget_size_1"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/addDestinationLocation"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="@dimen/widget_size_4"
+                                android:gravity="start|center_vertical"
+                                android:hint="@string/add_destination_location"
+                                android:singleLine="true"
+                                android:padding="@dimen/widget_size_4"
+                                android:textColorHint="@color/colorPrimary"
+                                android:textCursorDrawable="@null"
+                                android:textSize="@dimen/font_size_18" />
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/addDestinationLocation"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_alignParentRight="true"-->
+<!--                                android:layout_gravity="right"-->
+<!--                                android:layout_weight="2"-->
+<!--                                android:background="@null"-->
+<!--                                android:hint="Add Destination location"-->
+<!--                                android:inputType="textPostalAddress"-->
+<!--                                android:maxLines="2"-->
+<!--                                android:padding="8dp"-->
+<!--                                android:textColorHint="#bebebe"-->
+<!--                                android:textSize="@dimen/font_size_16"-->
+<!--                                android:textStyle="italic"-->
+<!--                                android:visibility="gone" />-->
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_distance"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/widget_size_40"
+                            android:layout_marginTop="@dimen/widget_size_10"
+                            android:background="@drawable/white_border"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:id="@+id/addDistance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:padding="@dimen/widget_size_8"
+                                android:text="@string/distance_heading"
+                                android:textSize="@dimen/font_size_16" />
+
+                            <TextView
+                                android:id="@+id/distanceLocation"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="right"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:maxLines="2"
+                                android:padding="@dimen/widget_size_8"
+                                android:textColorHint="#bebebe"
+                                android:textSize="@dimen/font_size_16"
+                                 />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:id="@+id/frameLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginBottom="@dimen/widget_size_60"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/s_add_meeting">
+
+                            <FrameLayout
+                                android:id="@+id/booking_info_data"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                />
+                        </FrameLayout>
+                        <!--                        <LinearLayout-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:layout_marginTop="20dp"-->
+                        <!--                            android:layout_marginRight="10dp"-->
+                        <!--                            android:layout_marginBottom="10dp"-->
+                        <!--                            android:orientation="horizontal"-->
+                        <!--                            android:weightSum="1">-->
+
+                        <Button
+                            android:id="@+id/btn_save"
+                            android:layout_width="@dimen/widget_size_120"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/btn_background"
+                            android:padding="@dimen/widget_size_10"
+                            android:text="@string/save"
+                            android:visibility="gone"
+                            android:textColor="@android:color/white"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/btn_cancel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/widget_size_5"
+                            android:layout_weight="0.5"
+                            android:background="@drawable/btn_background"
+                            android:padding="@dimen/widget_size_10"
+                            android:text="@string/cancel"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/font_size_16"
+                            android:visibility="gone" />
+                    </LinearLayout>
+<!--                </LinearLayout>-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/fab_margin"
+            android:layout_marginBottom="@dimen/fab_margin"
+            android:backgroundTint="@color/light_blue"
+            android:text="@string/submit"
+            android:textSize="@dimen/font_size_16"
+            android:textStyle="bold"
+            android:visibility="visible"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            app:icon="@drawable/ic_baseline_keyboard_arrow_up_24"
+            app:iconGravity="end"
+            app:iconPadding="@dimen/widget_size_4" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

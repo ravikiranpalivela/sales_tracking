@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.tekskills.st_tekskills.debug",
+  "variantName": "debug",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 240719016,
+      "versionName": "1.0.0",
+      "outputFile": "ST_TEKSKILLS-debug-v.240719016.apk"
+    }
+  ],
+  "elementType": "File"
+}

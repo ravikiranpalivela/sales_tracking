@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#fff"
+
+    android:layout_height="90dp">
+
+
+
+
+        <TextView
+
+            android:textColor="#bebebe"
+            android:gravity="center"
+            android:id="@+id/meetingtiltle"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Choose Your Action"
+           />
+
+
+    <Button
+        android:textColor="#fff"
+        android:id="@+id/checkin"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:text="Click Here For CheckIn"
+        android:gravity="center"/>
+
+
+
+</LinearLayout>
